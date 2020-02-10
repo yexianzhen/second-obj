@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping  package="com.ecp.entity" >
+<!-- 
+
+	private Integer id;
+	private String payStyle;
+
+ -->
+	<class name="PayWay"  table="PAYWAY"  >
+		<id name="id" column="payway_id" unsaved-value="null" >
+			<generator class="native"/>
+		</id>
+        <property name="payStyle" ></property>
+        
+    </class>
+    
+   
+    
+   
+    
+</hibernate-mapping>

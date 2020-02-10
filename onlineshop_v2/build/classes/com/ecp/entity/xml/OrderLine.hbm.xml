@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping  package="com.ecp.entity" >
+ 	<class name="OrderLine"  table="OrderLine"  >
+		<id name="id" column="OrderLine_id" unsaved-value="null" >
+			<generator class="native"/>
+		</id>
+        <property name="amount" ></property>
+       
+       <many-to-one  name="product" class="Product" column="product_id"  fetch="join" />
+       <many-to-one  name="order"   class="Order" column="order_id"   fetch="join" />
+       
+    </class>
+</hibernate-mapping>
+
+
+
+
+
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="gbk"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	
+<hibernate-mapping  package="com.ecp.entity" >
+<!-- 
+private Integer id;
+	private String name;
+	private double cost;
+	
+	private User user;
+	private PayWay payWay ;
+	private OrderStatus status ;
+	private Set orderlines = new HashSet();
+ -->
+	<class name="Order"  table="MYORDER"  >
+		<id name="id" column="order_id" unsaved-value="null" >
+			<generator class="native"/>
+		</id>
+		
+        <property name="name"  column="name" ></property>
+        <property name="cost" column="cost" ></property>
+        
+        <set name="orderlines"  inverse="true"  cascade="all"  fetch="join"    > 
+			<key column="order_id"/>
+			<one-to-many class="OrderLine"/> 
+        </set> 
+        <many-to-one  name="user" class="User" column="user_id"  fetch="join"   />
+        <many-to-one  name="payWay" class="PayWay" column="payWay_id" fetch="join"   />
+        <many-to-one  name="status" class="OrderStatus" column="orderStatus_id" fetch="join"   />
+
+    </class>
+</hibernate-mapping>
